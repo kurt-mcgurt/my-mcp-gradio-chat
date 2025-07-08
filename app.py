@@ -53,7 +53,7 @@ class MCPGradioClient:
             # Create server parameters
             server_params = StdioServerParameters(
                 command=command,
-                args=processed_args,
+                args=args,
                 env=processed_env
             )
             
