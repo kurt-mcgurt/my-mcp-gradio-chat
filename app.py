@@ -44,11 +44,11 @@ class MCPGradioClient:
                 processed_env[key] = value
             
             # Replace environment variables in args
-            processed_args = []
-            for arg in args:
-                if "${CODESPACE_NAME}" in arg:
-                    arg = arg.replace("${CODESPACE_NAME}", os.getenv("CODESPACE_NAME", ""))
-                processed_args.append(arg)
+            # processed_args = []
+            # for arg in args:
+            #     if "${CODESPACE_NAME}" in arg:
+            #         arg = arg.replace("${CODESPACE_NAME}", os.getenv("CODESPACE_NAME", ""))
+            #     processed_args.append(arg)
             
             # Create server parameters
             server_params = StdioServerParameters(
