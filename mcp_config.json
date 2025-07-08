@@ -22,7 +22,7 @@
     "git": {
       "type": "stdio",
       "command": "uvx",
-      "args": ["mcp-server-git", "--repository", "/workspaces/${CODESPACE_NAME}"]
+      "args": ["mcp-server-git", "--repository", "/workspaces/my-mcp-gradio-chat"]
     },
     "context7": {
       "type": "stdio",

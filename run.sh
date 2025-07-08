@@ -15,8 +15,10 @@ fi
 
 # Install uvx is included with uv, no separate installation needed
 
-# Make sure npx is available
-npm install -g npx
+# Make sure npx is available (install only if not already present)
+if ! command -v npx &> /dev/null; then
+    npm install -g npx
+fi
 
 echo "✅ Dependencies ready!"
 echo "🌐 Starting Gradio interface..."
