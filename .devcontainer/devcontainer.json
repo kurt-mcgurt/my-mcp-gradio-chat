@@ -1,7 +1,10 @@
 {
   "features": {
-	"ghcr.io/devcontainers/features/node:1": { "version": "20" },
-	"ghcr.io/devcontainers/features/python:1": { "version": "3.12" }
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" },
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.12" }
   },
-  "postCreateCommand": "pip install --upgrade pip && npm install -g npm@latest"
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin"
+  }
 }

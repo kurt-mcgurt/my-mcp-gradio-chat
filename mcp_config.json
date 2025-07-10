@@ -12,7 +12,7 @@
     "git-repo-research": {
       "type": "stdio", 
       "command": "uvx",
-      "args": ["awslabs-git-repo-research-mcp-server"],
+      "args": ["--from", "awslabs-git-repo-research-mcp-server", "awslabs.git-repo-research-mcp-server"],
       "env": {
         "AWS_PROFILE": "default",
         "AWS_REGION": "us-east-1",
@@ -21,8 +21,8 @@
     },
     "git": {
       "type": "stdio",
-      "command": "uvx",
-      "args": ["mcp-server-git", "--repository", "/workspaces/my-mcp-gradio-chat"]
+      "command": "python",
+      "args": ["-m", "mcp_server_git", "--repository", "/workspaces/my-mcp-gradio-chat"]
     },
     "context7": {
       "type": "stdio",
