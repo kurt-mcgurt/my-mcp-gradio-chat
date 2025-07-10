@@ -12,7 +12,7 @@
     "git-repo-research": {
       "type": "stdio", 
       "command": "uvx",
-      "args": ["--from", "awslabs-git-repo-research-mcp-server", "awslabs.git-repo-research-mcp-server"],
+      "args": ["awslabs.git-repo-research-mcp-server@latest"],
       "env": {
         "AWS_PROFILE": "default",
         "AWS_REGION": "us-east-1",

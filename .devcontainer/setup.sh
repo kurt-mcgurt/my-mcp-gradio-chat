@@ -1,23 +1,18 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
 
 echo "🔧 Setting up MCP development environment..."
 
-# Install uv
-echo "📦 Installing uv..."
-curl -LsSf https://astral.sh/uv/install.sh | sh
-source $HOME/.cargo/env
+# 1) Install uv only if it’s not already on PATH (feature image or cached)
+if ! command -v uv &>/dev/null; then
+  echo "📦 Installing uv..."
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+fi
 
-# Add to PATH permanently
-echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
-
-# Install Python packages
+# 2) Install Python deps with uv for speed & lock-file caching
 echo "🐍 Installing Python packages..."
-pip install --upgrade pip
-pip install gradio google-generativeai mcp mcp-server-git
+uv pip install --upgrade pip
+uv pip install gradio google-genai mcp mcp-server-git
 
-# Ensure npx is available
-echo "📦 Ensuring npx is available..."
-npm install -g npx@latest
-
+# 3) Nothing else to do: Node 20 already includes npx
 echo "✅ Setup complete!"
